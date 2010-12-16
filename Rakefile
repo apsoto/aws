@@ -11,12 +11,12 @@ testglobs = ["test/ts_right_aws.rb"]
 begin
     require 'jeweler'
     Jeweler::Tasks.new do |gem|
-        gem.name = "aws"
-        gem.summary = "AWS Ruby Library for interfacing with Amazon Web Services."
+        gem.name = "hackerdude-aws"
+        gem.summary = "AWS Ruby Library for interfacing with Amazon Web Services. Hackerdude branch including Alexa (Experimental)."
         gem.email = "travis@appoxy.com"
-        gem.homepage = "http://github.com/appoxy/aws/"
-        gem.description = "AWS Ruby Library for interfacing with Amazon Web Services."
-        gem.authors = ["Travis Reeder", "Chad Arimura", "RightScale"]
+        gem.homepage = "http://github.com/hackerdude/aws/"
+        gem.description = "AWS Ruby Library for interfacing with Amazon Web Services. Alexa-experimental branch."
+        gem.authors = ["Travis Reeder", "Chad Arimura", "RightScale", "David Martinez"]
         gem.files = FileList['lib/**/*.rb']
         gem.add_dependency 'uuidtools'
         gem.add_dependency 'http_connection'
@@ -92,6 +92,13 @@ task :testacf do
     require 'test/test_credentials'
     TestCredentials.get_credentials
     require 'test/acf/test_acf.rb'
+end
+
+desc "Test Alexa interface"
+task :testalexa do
+    require 'test/test_credentials'
+    TestCredentials.get_credentials
+    require 'test/alexa/test_alexa.rb'
 end
 
 # vim: syntax=Ruby
